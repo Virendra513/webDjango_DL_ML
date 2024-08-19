@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+
+{% block title %}Result{% endblock title %}
+
+
+{% block body %}
+<br>
+<br>
+
+<h1 style="text-align: center;font-size: 30px; font-family: Arial, sans-serif;"> <strong> Result</strong>  </h1>
+<br>
+<br>
+    <h2 style="text-align: center;font-size: 30px; font-family: Arial, sans-serif;"><strong><font color="green">This image is of the ............ {{predictedLabel}}!!!!!</font></strong></h2>
+            {% comment %} <h2>This Image is of the {{predictedLabel}}.....</h2> {% endcomment %}
+             <br>
+            <div style="display: flex; justify-content: center;">
+                <img src="{{ filePathName }}" alt="Image Preview" style="max-width: 100%; height: auto;">
+            </div>
+    <br>
+
+{% endblock body %}
