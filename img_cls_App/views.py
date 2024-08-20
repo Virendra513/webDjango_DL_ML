@@ -32,6 +32,9 @@ def predict_img(request):
     if request.method == 'POST' and 'filePath' in request.FILES:
         
         fileObj = request.FILES['filePath']
+        #   # Save the image to the model, which uploads it to Cloudinary
+        # my_model_instance = MyModel(image=fileObj)
+        # my_model_instance.save()
 
         img = Image.open(fileObj)
     
@@ -57,12 +60,11 @@ def predict_img(request):
         predictions = decode_predictions(predictions, top=1)[0]
         class_labels = predictions[0][1]
 
-        # Save the image to the model, which uploads it to Cloudinary
-        my_model_instance = MyModel(image=fileObj)
-        my_model_instance.save()
+        
 
         # Get the URL of the uploaded image
-        filePathName = my_model_instance.image.url
+        #filePathName = my_model_instance.image.url
+         filePathName = img_io
 
 
         # Prepare context for rendering the result
