@@ -40,7 +40,7 @@ def predict_img(request):
     
         # Convert the image to a format suitable for your model
           img_io = BytesIO()
-          img.save(img_io, format='JPEG')
+          img.save(img_io, format='png')
           img_io.seek(0)
     
     # Load the image using load_img from keras or any other function for processing
