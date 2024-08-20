@@ -35,6 +35,7 @@ def predict_img(request):
           # upload_result = cloudinary.uploader.upload(fileObj)
           # filePathName=upload_result['url']
           img_op = Image.open(fileObj)
+          img_op.save()
      
     
         # Resize the image
