@@ -31,9 +31,9 @@ def index_img(request):
 
 def predict_img(request):
      if request.method == 'POST' and 'filePath' in request.FILES:
-          fileObj = request.FILES['filePath']
-          respone = cloudinary.uploader.upload(fileObj)
-          img_op = Image.open(fileObj)
+          image = request.FILES['filePath']
+          respone = cloudinary.uploader.upload(image)
+          img_op = Image.open(image)
      
     
         # Resize the image
