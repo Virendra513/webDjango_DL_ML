@@ -58,7 +58,7 @@ def predict_img(request):
           predictions = decode_predictions(predictions, top=1)[0]
           class_labels = predictions[0][1]
           
-          filePathName=respone
+          filePathName=image
 
 
         # Prepare context for rendering the result
