@@ -11,6 +11,7 @@ from .models import MyModel
 from tensorflow.keras.preprocessing.image import img_to_array, load_img
 from tensorflow.keras.applications.mobilenet import preprocess_input, decode_predictions
 import numpy as np
+import cloudinary
 from cloudinary.uploader import upload
 
 
