@@ -29,39 +29,39 @@ def index_img(request):
     return render(request,'index_img.html')
 
 def predict_img(request):
-    if request.method == 'POST' and 'filePath' in request.FILES:
-         fileObj = request.FILES['filePath']
-         upload_result = cloudinary.uploader.upload(fileObj)
-         filePathName=upload_result['url']
+     if request.method == 'POST' and 'filePath' in request.FILES:
+          fileObj = request.FILES['filePath']
+          upload_result = cloudinary.uploader.upload(fileObj)
+          filePathName=upload_result['url']
      
     
         # Resize the image
-        img = img.resize((224, 224))  # Resize to 224x224 pixels (or any size you prefer)
+          img = img.resize((224, 224))  # Resize to 224x224 pixels (or any size you prefer)
     
         # Convert the image to a format suitable for your model
-        img_io = BytesIO()
-        img.save(img_io, format='JPEG')
-        img_io.seek(0)
+          img_io = BytesIO()
+          img.save(img_io, format='JPEG')
+          img_io.seek(0)
     
     # Load the image using load_img from keras or any other function for processing
     # Make sure the function accepts BytesIO objects or convert it to the required format
 
         # Load the image from the URL
-        img = load_img(img_io, target_size=(img_height, img_width))
-        x = img_to_array(img)
-        x = np.expand_dims(x, axis=0)
-        x = preprocess_input(x)
+          img = load_img(img_io, target_size=(img_height, img_width))
+          x = img_to_array(img)
+          x = np.expand_dims(x, axis=0)
+          x = preprocess_input(x)
 
         # Make prediction
-        predictions = model.predict(x)
-        predictions = decode_predictions(predictions, top=1)[0]
-        class_labels = predictions[0][1]
+          predictions = model.predict(x)
+          predictions = decode_predictions(predictions, top=1)[0]
+          class_labels = predictions[0][1]
 
 
         # Prepare context for rendering the result
-        context = {'filePathName': filePathName, 'predictedLabel': class_labels}
-        return render(request, 'result.html', context)
-    return render(request, 'index_img.html')
+          context = {'filePathName': filePathName, 'predictedLabel': class_labels}
+          return render(request, 'result.html', context)
+     return render(request, 'index_img.html')
     
     # fileObj=request.FILES['filePath']
     # fs=FileSystemStorage()
