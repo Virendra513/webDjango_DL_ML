@@ -64,7 +64,7 @@ def predict_img(request):
 
         # Get the URL of the uploaded image
         #filePathName = my_model_instance.image.url
-         filePathName = img_io
+        filePathName = img_io
 
 
         # Prepare context for rendering the result
